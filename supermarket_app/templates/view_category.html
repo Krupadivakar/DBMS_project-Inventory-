@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Category List</title>
+  {% load static %}
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+</head>
+<body>
+   <h2><center>Category List</center></h2>
+      {% if messages %}
+      {% for message in messages %}
+      <div class = "alert alert-success">
+        <h3 style="color:green;">{{message}}</h3>
+      </div>
+      {% endfor %}
+      {% endif %}
+  <table class="table table-striped table-bordered table-sm">
+  <thead class="thead-dark">
+  <tr>
+    <th>Item Id</th>
+    <th>Section ID</th>
+    <th>Sectionname</th>
+ 
+
+  </tr>
+  </thead>
+  {% for cat in category_table %}
+  <tr>
+    <td>{{ cat.item_id }}</td>
+    <td>{{ cat.ca_id }}</td>
+    <td>{{ cat.sec_name }}</td>
+    
+    <td>
+    
+      <a href="/editCategory/{{ cat.item_id }}" class="glyphicon glyphicon-pencil">Edit</a>
+      <a href="/deleteCategory/{{ cat.item_id }}" class="glyphicon glyphicon-trash"> Delete</a>
+    </td>
+  </tr>
+    {% endfor %}
+    <!-- <a href="#" class="btn btn-primary" role="button">Add Item</a> -->
+    <div class="row">
+  <div class="col-6-md">
+    <a href="{% url 'category' %}" class="btn btn-primary">Add Category</a>
+    <a href="{% url 'mainScreen' %}" class="btn btn-success">Go to main screen</a>
+  </div>
+</div>
+</body>
+</html>

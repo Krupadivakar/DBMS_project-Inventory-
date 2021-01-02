@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Vendor List</title>
+	{% load static %}
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+</head>
+<body>
+	 <h2><center>Vendor List</center></h2>
+	 	  {% if messages %}
+      {% for message in messages %}
+      <div class = "alert alert-success">
+      	<h3 style="color:green;">{{message}}</h3>
+      </div>
+      {% endfor %}
+      {% endif %}
+	<table class="table table-striped table-bordered table-sm">
+	<thead class="thead-dark">
+	<tr>
+		<th>Vendor Id</th>
+		<th>Location</th>
+		<th>Company Name</th>
+		<th>Phone number</th>
+		<th>Email</th>
+	</tr>
+	</thead>
+	{% for ven in vendor_table %}
+	<tr>
+		<td>{{ ven.vendor_id }}</td>
+		<td>{{ ven.location }}</td>
+		<td>{{ ven.company_name }}</td>
+		<td>{{ ven.phone_no }}</td>
+		<td>{{ ven.email }}</td>
+		<td>
+		
+			<a href="/editVendor/{{ ven.vendor_id }}" class="glyphicon glyphicon-pencil">Edit</a>
+			<a href="/deleteVendor/{{ ven.vendor_id }}" class="glyphicon glyphicon-trash"> Delete</a>
+		</td>
+	</tr>
+    {% endfor %}
+    <!-- <a href="#" class="btn btn-primary" role="button">Add Item</a> -->
+    <div class="row">
+  <div class="col-6-md">
+    <a href="{% url 'vendor' %}" class="btn btn-primary">Add Vendor</a>
+    <a href="{% url 'mainScreen' %}" class="btn btn-success">Go to main screen</a>
+  </div>
+</div>
+</body>
+</html>

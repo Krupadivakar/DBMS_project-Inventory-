@@ -1,0 +1,54 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title></title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    h1{
+      margin:200px 80px 100px 100px;
+      font-size: 90px;
+    }
+    body{
+background-image:url({% static 'img/supermarket2.jpg' %});
+background-repeat:no-repeat;
+background-attachment:fixed;
+background-size:cover;
+}
+  </style>
+  
+  
+
+</head>
+<body class="outer-image-container" class="img-responsive">
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+<!--    <div class="navbar-header">
+      <a class="navbar-brand" href="#">WebSiteName</a>
+    </div> --> 
+    <ul class="nav navbar-nav">
+      <li><a class="active" href="{% url 'View Table' %}">Items</a></li>
+      <li><a class="active" href="{% url 'Category Table' %}">Category</a></li>
+      <li><a class="active" href="{% url 'Manager Table' %}">Manager</a></li>
+       <li><a class="active" href="{% url 'Vendor Table' %}">Vendor</a></li>
+       <li><a class="active" href="{% url 'Discard Product Table' %}">Discarded Products</a></li>
+       <li><a class="active" href="{% url 'Product Instance Table' %}">Product Instance</a></li>
+       <li><a class="active" href="{% url 'Stocks Table' %}">Stocks</a></li>
+       <li><a class="active" href="{% url 'Supply Table' %}">Supply</a></li>
+      
+    </ul>
+  </div>
+</nav>
+  
+<div class="container">
+
+</div>
+
+</body>
+</html>

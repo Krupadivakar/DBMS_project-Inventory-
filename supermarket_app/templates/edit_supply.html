@@ -1,0 +1,107 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Edit Supply Details</title>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+  </head>
+  <body>
+    <form method="POST"> <!-- class="post-form" action="/supmk/">-->
+       {% csrf_token %} 
+    <div class="container">
+      <div class="row col-md-6 col-md-offset-3">
+        <div class="panel panel-primary">
+          <div class="panel-heading text-center">
+            <h1>Edit Supply Details</h1>
+          </div>
+          <div class="panel-body">
+          <!-- <form action="connect.php" method="post">-->
+              <div class="form-group">
+                <label class="col-sm-2 col-form-label">Supply Id</label>
+                <div class="col-sm-4">
+                <input
+                  type="text"
+                  name="supply_id"
+                  class="form-control"
+                  value="{{ display_table.supply_id }}"
+                  readonly
+                />
+                </div>
+             </div>
+               <br>
+               <br>
+               <br>     
+             <div class="form-group">
+                <label class="col-sm-2 col-form-label">Vendor ID</label>
+                <div class="col-sm-4">
+                <input
+                  type="text" name="vendor_id"
+                  class="form-control"
+                 
+                  value="{{ display_table.vendor.vendor_id }}"
+                  readonly
+                />
+               </div>
+              </div> 
+               <br>
+               <br>
+               <br>
+               <div class="form-group"> 
+                <label class="col-sm-2 col-form-label">Item name</label>
+               <div class="col-sm-4">
+                <input
+                  type="text"
+                  class="form-control"
+                 
+                  name="item_name"
+                  value="{{ display_table.item_name }}"
+                />
+                </div>
+            </div>
+          <br>
+          <br>
+          <br>
+
+                      <div class="form-group"> 
+                <label class="col-sm-2 col-form-label">Quantity</label>
+                <div class="col-sm-4">
+                <input
+                  type="number"
+                  class="form-control"
+                  name="quantity"
+                  value="{{ display_table.quantity }}"
+                />
+             </div>
+           </div>  
+
+             <br><br><br>   
+
+
+                        
+               <input type="submit" class="btn btn-primary" />
+               {% if messages %}
+               {% for message in messages %}
+      <div class = "alert alert-success">
+        <h3 style="color:green;">{{message}}</h3>
+      </div>               {% endfor %}
+               {% endif %}
+           
+          </div>
+         
+        </div>
+      </div>
+    </div>
+    <!--
+    <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+  <div class="toast-header">
+   
+   
+    <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+ 
+</div>-->
+    </form> 
+  </body>
+</html>

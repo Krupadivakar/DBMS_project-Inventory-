@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Product Instance List</title>
+  {% load static %}
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+</head>
+<body>
+   <h2><center>Product Instance List</center></h2>
+      {% if messages %}
+      {% for message in messages %}
+      <div class = "alert alert-success">
+        <h3 style="color:green;">{{message}}</h3>
+      </div>
+      {% endfor %}
+      {% endif %}
+  <table class="table table-striped table-bordered table-sm">
+  <thead class="thead-dark">
+  <tr>
+    <th>Product Instance Id</th>
+    <th>Sell by date</th>
+    <th>Quantity</th>
+    <th>Item ID</th>
+
+  </tr>
+  </thead>
+  {% for prod in product_table %}
+  <tr>
+    <td>{{ prod.prod_instance_id }}</td>
+    <td>{{ prod.sell_by_date }}</td>
+    <td>{{ prod.quantity }}</td>
+    <td>{{ prod.item.item_id }}</td>
+    <td>
+    
+      <a href="/editProductInstance/{{ prod.prod_instance_id }}" class="glyphicon glyphicon-pencil">Edit</a>
+      <a href="/deleteProductInstance/{{ prod.prod_instance_id }}" class="glyphicon glyphicon-trash"> Delete</a>
+    </td>
+  </tr>
+    {% endfor %}
+    <!-- <a href="#" class="btn btn-primary" role="button">Add Item</a> -->
+    <div class="row">
+  <div class="col-6-md">
+    <a href="{% url 'product' %}" class="btn btn-primary">Add Product Instance</a>
+    <a href="{% url 'mainScreen' %}" class="btn btn-success">Go to main screen</a>
+  </div>
+</div>
+</body>
+</html>

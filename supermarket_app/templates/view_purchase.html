@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Purchase Order List</title>
+	{% load static %}
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+</head>
+<body>
+	 <h2><center>Purchase Order List</center></h2>
+	<table class="table table-striped table-bordered table-sm">
+	<thead class="thead-dark">
+	<tr>
+		<th>Quantity</th>
+		<th>Item Id</th>
+		<th>Vendor ID</th>
+		<th>Order date</th>
+		<th>Manager ID</th>
+	</tr>
+	</thead>
+	{% for pur in purchase_table %}
+	<tr>
+		<td>{{ pur.quantity }}</td>
+		<td>{{ pur.item_id }}</td>
+		<td>{{ pur.vendor_id }}</td>
+		<td>{{ pur.order_date }}</td>
+		<td>{{ pur.mgr_id }}</td>
+		<td>
+		
+			<a href="/editpurchase/{{ pur.item_id}}, {{pur.vendor_id}}" class="glyphicon glyphicon-pencil">Edit</a>
+			<!-- <a href="/deletepurchase/{{ pur.unique_together }}" class="glyphicon glyphicon-trash"> Delete</a> -->
+		</td>
+	</tr>
+    {% endfor %}
+    <!-- <a href="#" class="btn btn-primary" role="button">Add Item</a> -->
+    <div class="row">
+  <div class="col-6-md">
+    <a href="{% url 'purchase' %}" class="btn btn-primary">Add Purchase Order</a>
+  </div>
+</div>
+</body>
+</html>

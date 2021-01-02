@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Edit Product Instance Details</title>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+  </head>
+  <body>
+    <form method="POST"> <!-- class="post-form" action="/supmk/">-->
+       {% csrf_token %} 
+    <div class="container">
+      <div class="row col-md-6 col-md-offset-3">
+        <div class="panel panel-primary">
+          <div class="panel-heading text-center">
+            <h1>Edit Product Instance Details</h1>
+          </div>
+          <div class="panel-body">
+          <!-- <form action="connect.php" method="post">-->
+              <div class="form-group">
+                <label class="col-sm-2 col-form-label">Product Instance Id</label>
+                <div class="col-sm-4">
+                <input
+                  type="text"
+                  name="prod_instance_id"
+                  class="form-control"
+                  value="{{ display_table.prod_instance_id }}"
+                  readonly
+                />
+                </div>
+             </div>
+               <br>
+               <br>
+               <br>     
+             <div class="form-group">
+                <label class="col-sm-2 col-form-label">Sell by Date</label>
+                <div class="col-sm-4">
+                <input
+                  type="date" name="sell_by_date"
+                  class="form-control"
+                 
+                  value="{{ display_table.sell_by_date }}"
+                 
+                />
+               </div>
+              </div> 
+               <br>
+               <br>
+               <br>
+
+                      <div class="form-group"> 
+                <label class="col-sm-2 col-form-label">Quantity</label>
+                <div class="col-sm-4">
+                <input
+                  type="number"
+                  class="form-control"
+                  name="quantity"
+                  value="{{ display_table.quantity }}"
+                />
+             </div>
+           </div>  
+
+             <br><br><br>   
+                      <div class="form-group"> 
+                <label class="col-sm-2 col-form-label">Item Id</label>
+                <div class="col-sm-4">
+                <input
+                  type="text"
+                  class="form-control"
+                  name="item_id"
+                  value="{{ display_table.item_id }}"
+                  readonly
+                />
+             </div>
+           </div>  
+
+
+
+                        
+               <input type="submit" class="btn btn-primary" data-toggle="modal" data-target="#myModal" />
+                 <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title"></h4>
+        </div>
+        <div class="modal-body">
+          {% if messages %}
+               {% for message in messages %}
+               <h3 style="color:green;">{{message}}</h3>
+               {% endfor %}
+          {% endif %}
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+               
+           
+          </div>
+         
+        </div>
+      </div>
+    </div>
+    <!--
+    <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+  <div class="toast-header">
+   
+   
+    <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+ 
+</div>-->
+    </form> 
+  </body>
+</html>
